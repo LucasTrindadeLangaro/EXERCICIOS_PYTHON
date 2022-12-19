@@ -181,14 +181,24 @@ while True:
             print('sua lista ficaou assim: ')
             for i, e in enumerate(lista_comp):
                 print(f'{i+1} - {e}')             
+                        
 
-
-    
-
-''' #se a opção for Listar:
+                            #se a opção for Listar:
     elif opcao == 'L':
-        for i in lista:
-            print(i)
+        try:
+            nome_arquivo = input('digite o nome do arquivo: ')
+            arquivo = open(nome_arquivo,'r')
+            linhas = arquivo.readlines()
+            for linha in linhas:
+                linha = linha.rstrip('\n') #isso tira a quebra de linha que vem do arquivo
+                lista_comp.append(linha)
+            arquivo.close()
+        except:
+            print(f'{nome_arquivo} não existe!!voltando para o inicio')
+            tempo()
+            continue
+        for i,e in enumerate(lista_comp):
+            print(f'{i} - {e}')
     
     #Se a opção for sair
     elif opcao == 'S':
@@ -198,14 +208,50 @@ while True:
 
     #Caso não digite I,A,L ou S
     else:
-        print('Para continuar, voce precisa digitar I, A, L ou S! ', end='')'''
+        print('Para continuar, voce precisa digitar I, A, L ou S! ', end='')
 
 
 #fim do programa
 print('Fim do programa!')
-if len(lista) <= 0:
-    print('Sua lista esta vazia!')
-else:
-    print('Essa é a sua lista: ')
-    for i,e in enumerate(lista):
-        print(f'{i+1}° - {e}', end=' ')
+
+
+
+
+'''codigo feito pelo instrutor: 
+
+import os
+
+lista = []
+
+while True:
+    print('Selecione uma opção')
+    opcao = input('[i]nserir [a]pagar [l]istar: ')
+
+    if opcao == 'i':
+        os.system('clear')
+        valor = input('Valor: ')
+        lista.append(valor)
+    elif opcao == 'a':
+        indice_str = input(
+            'Escolha o índice para apagar: '
+        )
+
+        try:
+            indice = int(indice_str)
+            del lista[indice]
+        except ValueError:
+            print('Por favor digite número int.')
+        except IndexError:
+            print('Índice não existe na lista')
+        except Exception:
+            print('Erro desconhecido')
+    elif opcao == 'l':
+        os.system('clear')
+
+        if len(lista) == 0:
+            print('Nada para listar')
+
+        for i, valor in enumerate(lista):
+            print(i, valor)
+    else:
+        print('Por favor, escolha i, a ou l.')'''
