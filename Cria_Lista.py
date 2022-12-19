@@ -87,7 +87,7 @@ while True:
 
      
                             #Se a opção for para apagar:
-    elif opcao == 'A':
+    '''elif opcao == 'A':
         apgar_toda_lista = input('Deseja apagar todos os itens da lista? ').upper().strip()[0]
 
 #verifica se quer apagar todos os itens da lista
@@ -199,4 +199,4 @@ if len(lista) <= 0:
 else:
     print('Essa é a sua lista: ')
     for i,e in enumerate(lista):
-        print(f'{i+1}° - {e}', end=' ')
+        print(f'{i+1}° - {e}', end=' ')'''
